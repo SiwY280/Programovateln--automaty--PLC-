@@ -43,15 +43,15 @@ Programovatelné automaty (PLC)
 
 2. **PLC vs. Embedded PLC a další řídicí jednotky:**
    - Jaký je zásadní rozdíl mezi standardním průmyslovým PLC v krabičce na DIN lištu a tzv. **Embedded PLC**? Co obecně vyjadřuje pojem *embedded* a v jakých dalších typech zařízení se s ním setkáváme?
-     - *Vaše vysvětlení:* `...`
+     - *Vaše vysvětlení:* `PLC - koupíme a programujeme podle našich potřeb, je to jako LEGO / em. PLC - je to plošný spoj, který je dělaný na míru, dává se např. do: mikrovlnek a dalších spotřebičů`
 
    - Doplňte do přehledové tabulky význam zkratek a oblast jejich nasazení:
 
 | Zkratka      | Co zkratka znamená (anglicky / česky) | Pro jakou oblast řízení se primárně využívá                        | Typický operační / řídicí systém                 |
 | :----------- | :------------------------------------ | :----------------------------------------------------------------- | :----------------------------------------------- |
 | **iPC**      | Industrial PC / Průmyslové PC         | Vizualizace SCADA, řízení rozsáhlých technologických uzlů, SoftPLC | Průmyslový OS (Windows IoT Enterprise, Linux RT) |
-| **NC / CNC** | `...`                                 | `...`                                                              | `...`                                            |
-| **MCU**      | `...`                                 | `...`                                                              | `...` *(bare-metal bez OS nebo RTOS)*            |
+| **NC / CNC** | `NC - numerical control / číslicové řízení // CNC - computer NC / počítačové čís. říz. `    | `řízení přesného mech. pohybu a obrábění materiálu`   | ``          |
+| **MCU**      | `Microcontroller unit/ mikrokontrolér`         | `chytrá světla, termostaty, v podstatě vše co potřebuje chytře zapnout a vypnout (je to chyrý vypínač)`      | `Používa se většinou op. sys. RTOS - zaručuje, že se vše stane na milisekundu přesně (nejdůležitější úkol má vždy přednost` *(bare-metal bez OS nebo RTOS)*            |
 | **SoC**      | System on a chip                      | `...`                                                              | `...`                                            |
 
 > :key: **Vysvětlení pojmů a odborné zdroje:**
