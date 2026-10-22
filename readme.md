@@ -50,9 +50,9 @@ Programovatelné automaty (PLC)
 | Zkratka      | Co zkratka znamená (anglicky / česky) | Pro jakou oblast řízení se primárně využívá                        | Typický operační / řídicí systém                 |
 | :----------- | :------------------------------------ | :----------------------------------------------------------------- | :----------------------------------------------- |
 | **iPC**      | Industrial PC / Průmyslové PC         | Vizualizace SCADA, řízení rozsáhlých technologických uzlů, SoftPLC | Průmyslový OS (Windows IoT Enterprise, Linux RT) |
-| **NC / CNC** | `NC - numerical control / číslicové řízení // CNC - computer NC / počítačové čís. říz. `    | `řízení přesného mech. pohybu a obrábění materiálu`   | ``          |
+| **NC / CNC** | `NC - numerical control / číslicové řízení // CNC - computer NC / počítačové čís. říz. `    | `řízení přesného mech. pohybu a obrábění materiálu`   | `NC - nemá op. systém (starý, drátky) / CNC - Fanuc, nejrozšířenější (poté ještě: Siemens - německý systém, Haas - americký systém, Heidenhain - používá se v Evropě`          |
 | **MCU**      | `Microcontroller unit/ mikrokontrolér`         | `chytrá světla, termostaty, v podstatě vše co potřebuje chytře zapnout a vypnout (je to chyrý vypínač)`      | `Používa se většinou op. sys. RTOS - zaručuje, že se vše stane na milisekundu přesně (nejdůležitější úkol má vždy přednost` *(bare-metal bez OS nebo RTOS)*            |
-| **SoC**      | System on a chip                      | `...`                                                              | `...`                                            |
+| **SoC**      | System on a chip                      | `Všude kde je potřeba vysoký výkon a malý rozměr - telefony, chytré hodinky,...`               | `Android, iOS, macOS, Linux, Windows - vše je specialně upraveno `                                            |
 
 > :key: **Vysvětlení pojmů a odborné zdroje:**
 > - **PLC (Programmable Logic Controller):** Průmyslový mikropočítačový systém určený pro deterministické řízení technologických procesů v reálném čase. Vyznačuje se vysokou odolností proti rušení, modulární koncepcí a cyklickým vykonáváním programu.
