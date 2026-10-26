@@ -83,14 +83,14 @@ Prostudujte vnitřní blokové uspořádání programovatelného automatu na ní
 1. **Vnitřní uspořádání a paměťové oblasti PLC:**
    - Podle výše uvedeného blokového schématu a technické dokumentace PLC Teco doplňte funkci jednotlivých paměťových bloků v procesorové jednotce:
      - **Flash paměť (uživatelský program):** 
-       - Je volatilní (energeticky závislá)? `[Ano / Ne]`
-       - Co přesně se do ní nahrává z prostředí Mosaic: `...`
+       - Je volatilní (energeticky závislá)? `NE`
+       - Co přesně se do ní nahrává z prostředí Mosaic: `Přeložený uživatelský program PLC, tedy výsledný strojový kód řídicí aplikace. U systémů Foxtrot lze program zálohovat do nevolatilní paměti Flash/EEPROM, aby jej bylo možné obnovit po výpadku napájení. U některých novějších systémů Foxtrot 2 lze navíc volitelně ukládat do PLC také zdrojový projekt`
      - **Datová paměť RAM:** 
-       - Je volatilní? `[Ano / Ne]`
-       - K čemu slouží během cyklu PLC: `...`
+       - Je volatilní? `Ano`
+       - K čemu slouží během cyklu PLC: `Uchovává aktuální hodnoty proměnných, mezivýsledky výpočtů, stavové informace a data potřebná pro vykonávání uživatelského programu. PLC z těchto dat vyhodnocuje logiku řízení a aktualizuje výstupy. U Foxtrotu může být část RAM zálohována, takže její obsah může při výpadku napájení zůstat zachován po omezenou dobu`
      - **Remanentní paměť (Retain / zálohovaná RAM):** 
-       - Jakým způsobem je zálohována při výpadku napájení v modulech Tecomat Foxtrot (akumulátor / superkondenzátor / paměť FRAM): `...`
-       - Uveďte typický příklad proměnné, která musí být uložena v remanentní paměti: `...`
+       - Jakým způsobem je zálohována při výpadku napájení v modulech Tecomat Foxtrot (akumulátor / superkondenzátor / paměť FRAM): `U běžných jednotek Foxtrot je zálohování RAM zajištěno vestavěným lithium-iontovým akumulátorem. Typická doba zálohování je přibližně 500 hodin; u některých modelů lze dobu prodloužit přídavnou baterií CR2032. Konkrétní provedení závisí na generaci a typu PLC`
+       - Uveďte typický příklad proměnné, která musí být uložena v remanentní paměti: `Uživatelská nastavení, počet odpracovaných hodin, počet vyrobených kusů`
 
 2. **Cyklický princip činnosti PLC a procesní obraz:**
 	
