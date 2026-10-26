@@ -99,26 +99,26 @@ Prostudujte vnitřní blokové uspořádání programovatelného automatu na ní
 	Obr. převzatý z: TECO A.S. *PROGRAMOVATELNÉ AUTOMATY TECOMAT FOXTROT 2*. Kolín: Teco a.s., 2026. Dostupné také z: https://wiki.tecomat.cz/
 	
    - Popište 3 základní fáze jednoho pracovního cyklu PLC (**Scan Cycle**):
-     - *Fáze 1 (Čtení vstupů):* `...` *(načtení stavu svorek do Procesního obrazu vstupů – PII)*
-     - *Fáze 2 (Vykonání programu):* `...` *(výpočet logických a matematických operací)*
-     - *Fáze 3 (Zápis výstupů):* `...` *(přenesení Procesního obrazu výstupů – PIQ na fyzické svorky)*
+     - *Fáze 1 (Čtení vstupů):* `PLC načte aktuální stavy fyzických vstupních svorek a uloží je do procesního obrazu vstupů` *(načtení stavu svorek do Procesního obrazu vstupů – PII)*
+     - *Fáze 2 (Vykonání programu):* `Procesor postupně vykoná uživatelský program, provede logické a matematické operace a výsledky ukládá do proměnných a procesního obrazu výstupů` *(výpočet logických a matematických operací)*
+     - *Fáze 3 (Zápis výstupů):* `PLC přenese hodnoty z procesního obrazu výstupů (PIQ) na fyzické výstupní svorky, čímž ovlivní připojená zařízení.` *(přenesení Procesního obrazu výstupů – PIQ na fyzické svorky)*
    - Proč procesor PLC nečte fyzické svorky průběžně během výpočtu programu na každém řádku kódu, ale pracuje výhradně s procesním obrazem?
-     - *Vysvětlení:* `...`
+     - *Vysvětlení:* ` Procesní obraz zajišťuje, že program během jednoho cyklu pracuje se stabilními hodnotami vstupů, i když se fyzické signály během výpočtu změní. Díky tomu je vykonávání programu předvídatelné, konzistentní a efektivní. Zároveň se výstupy aktualizují společně na konci cyklu, což omezuje nežádoucí kolísání výstupních signálů.`
 
 3. **Napájení, signály a elektrická odolnost:**
    - Jaké je jmenovité napájecí napětí centrálních jednotek a rozšiřujících modulů systému Tecomat Foxtrot?
      - Označte správné možnosti: 
-	     `[ ] DC`
+	     `[ X] DC`
 	     `[ ] AC`
 	     `[ ] 5 V`
 		 `[ ] 12 V`
-		 `[ ] 24 V`
+		 `[X ] 24 V`
 		 `[ ] 48 V` 
 		 `[ ] 230 V`
    - Jaký je princip fungování a hlavní výhoda **galvanického oddělení** vstupních obvodů (pomocí optočlenů) u průmyslového PLC?
-     - *Odpověď:* `...`
+     - *Odpověď:* `Galvanické oddělení pomocí optočlenu zajišťuje přenos signálu mezi dvěma elektricky oddělenými obvody pomocí světla. Vstupní LED optočlenu se rozsvítí a světlocitlivý prvek na druhé straně signál přijme, aniž by mezi obvody vzniklo přímé elektrické spojení.`
    - Proč musí být paralelně k cívce stejnosměrného elektromagnetického ventilu nebo stykače spínaného polovodičovým tranzistorovým výstupem PLC zapojena ochranná zhášecí dioda (tzv. flyback dioda/freewheeling diode)?
-     - *Vysvětlení:* `...`
+     - *Vysvětlení:* `Cívka elektromagnetického ventilu nebo stykače je indukční zátěž. Při vypnutí proudu se její magnetické pole rychle zhroutí a vznikne napěťová špička opačné polarity, která může poškodit tranzistorový výstup PLC`
 
 4. **Komunikační rozhraní a systémové sběrnice Teco:**
    - Doplňte do tabulky parametry sběrnic používaných u systému Tecomat Foxtrot (využijte [wiki.tecomat.cz](https://wiki.tecomat.cz/)):
