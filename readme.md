@@ -126,8 +126,8 @@ Prostudujte vnitřní blokové uspořádání programovatelného automatu na ní
 | Název sběrnice                         | Typická fyzická vrstva / kabeláž                        | K čemu sběrnice slouží                                | Maximální dosah / zakončení (terminace)                      |
 | :------------------------------------- | :------------------------------------------------------ | :---------------------------------------------------- | :----------------------------------------------------------- |
 | **TCL2** *(Teco Communication Line 2)* | RS-485, stíněný kroucený pár (např. kabel SYKFY, PCEHY) | Připojení rychlých periferních modulů na DIN lištu    | Až stovek metrů; na obou koncích zakončovací odpor cca 120 Ω |
-| **CIB** *(Common Installation Bus)*    | `...`                                                   | `...`                                                 | `...`                                                        |
-| **Ethernet (ETH)**                     | 100Base-TX, konektor RJ45 (kabel UTP/STP Cat 5e/6)      | `...` *(programování Mosaic, Web server, Modbus TCP)* | Max. 100 m na segment                                        |
+| **CIB** *(Common Installation Bus)*    | `Dvoudrátová sběrnice, stíněný kroucený pár, např. J-Y(St)Y 1×2×0,8 nebo YCYM 2×2×0,8`         | `Připojení periferních modulů CFox (senzory, akční členy, moduly pro řízení budov`    | `Cca 500 m od masteru k nejvzdálenější jednotce; bez zakončovacích odporů, libovolná topologie kromě uzavřeného kruhu`     |
+| **Ethernet (ETH)**                     | 100Base-TX, konektor RJ45 (kabel UTP/STP Cat 5e/6)      | `Komunikace s PC a nadřazenými systémy, programování Mosaic, Web server, Modbus TCP` *(programování Mosaic, Web server, Modbus TCP)* | Max. 100 m na segment                                        |
 
 > :key: **Vysvětlení pojmů a odborné zdroje:**
 > - **Procesní obraz (Process Image):** Paměťová oblast v RAM kontroléru, která uchovává snímek stavu všech fyzických vstupů pořízený na počátku cyklu a připravený stav výstupů pro zápis na konci cyklu. Zajišťuje časovou konzistenci dat během zpracování algoritmu.
@@ -147,7 +147,7 @@ Prostudujte vnitřní blokové uspořádání programovatelného automatu na ní
 V jakých jednotkách udává norma **ČSN EN 60529** odolnost proti vniknutí pevných těles a kapalin (kód IP) a jaké minimální krytí musí mít centrální jednotka PLC určená pro montáž na DIN lištu do rozváděče (např. Tecomat Foxtrot v provedení IP20) ve srovnání s decentralizovaným senzorem na venkovním potrubí? Ověřte i správnost označení normy.
 
 *Vaše odpověď:*
-`...`
+`Odolnost se podle ČSN EN 60529 udává pomocí IP kódu. První číslice označuje ochranu proti pevným tělesům a prachu, druhá proti vodě. PLC umístěné uvnitř rozváděče může mít krytí IP20. Senzor instalovaný venku na potrubí by měl mít minimálně IP65, případně IP67 při riziku ponoření do vody.`
 
 ---
 
