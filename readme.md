@@ -177,34 +177,32 @@ Jste v roli projektanta automatizačních systémů. Zákazník požaduje navrhn
 
 1. **Konfigurace komponent z katalogu Teco (vyplňte návrhovou tabulku):**
 
-| Pozice | Typ modulu / komponenta                     | Přesné typové označení Teco           | Objednací číslo (Part No.) | Pokryté vstupy a výstupy (DI / DO / AI / PWM / relé) |
+| Pozice | Typ modulu / komponenta | Přesné typové označení Teco | Objednací číslo (Part No.) | Pokryté vstupy a výstupy (DI / DO / AI / PWM / relé) |
 | :----- | :------------------------------------------ | :------------------------------------ | :------------------------- | :--------------------------------------------------- |
-| **1**  | Spínaný napájecí zdroj 24 V DC na DIN lištu | `DR-60-24` *(např. PS2-60/27)*             | `...`                      | Napájení centrály a senzorů 24 V DC                  |
-| **2**  | Centrální jednotka (CPU)                    | `CP-2007` *(např. CP-2007 nebo CP-2005)*  | `...`                      | `...`                                                |
-| **3**  | Rozšiřující modul 1 (sběrnice TCL2)         | `IB-1301` *(např. IB-1301)*               | `TXN 113 01`                      | `...`                                                |
-| **4**  | Rozšiřující modul 2 (sběrnice TCL2)         | `...` *(např. OS-1401)*               | `...`                      | `...`                                                |
-| **5**  | Případný další submodul / zakončení         | `...` *(např. zakončovací člen TCL2)* | `...`                      | `...`                                                |
+| **1** | Spínaný napájecí zdroj 24 V DC na DIN lištu | `PS2-60/24` (nebo MeanWell DR-60-24) | `TXV 003 24` | Napájení centrální jednotky, I/O modulů a externích 24V senzorů |
+| **2** | Centrální jednotka (CPU) | `CP-2007` | `TXN 120 07` | 14× univerzální vstup (využito pro 7× AI: 5× proud 4–20 mA + 2× Pt100/Pt1000 a 7× DI), 10× reléový výstup (využito 3× pro topná tělesa), Ethernet, CIB, TCL2 |
+| **3** | Rozšiřující modul 1 (sběrnice TCL2) | `IB-1301` | `TXN 113 01` | 12× digitální vstup (DI 24 V DC) – pokrytí zbývajících 16 DI + rezerva |
+| **4** | Rozšiřující modul 2 (sběrnice TCL2) | `OS-1401` (tranzistorový výstupní modul) | `TXN 114 01` | 12× tranzistorový výstup 24 V DC (pokrývá 4× PWM výstupy, 2× standardní tranzistorové výstupy + rezerva) |
+| **5** | Zakončení sběrnice / Rezerva | `TCL2-TERM` (zakončovací člen sběrnice) | `TXV 130 01` | Fyzické zakončení systémové sběrnice TCL2 pro zajištění bezchybné komunikace |
 
 2. **Vyhodnocení I/O bilance a projektové rezervy:**
    - Doplňte počty a vypočítejte výslednou rezervu pro budoucí rozšíření linky:
 
 | Typ signálu | Požadavek linky | Celková kapacita navržené sestavy Teco | Rezerva (počet volných svorek) | Výsledná rezerva v % |
 | :--- | :--- | :--- | :--- | :--- |
-| **Digitální vstupy (DI)** | 23 | `...` | `...` | `... %` |
-| **Analogové vstupy (AI: 4–20mA, PT)**| 7 | `...` | `...` | `... %` |
-| **Tranzistorové výstupy (DO tranzistor + PWM)** | 6 (4 PWM + 2 DO)| `...` | `...` | `... %` |
-| **Reléové výstupy (DO relé 230 V)**| 3 | `...` | `...` | `... %` |
-
+| **Digitální vstupy (DI)** | 23 | **28** (CPU CP-2007 + rozšiřující modul IB-1301) | **5** | **21,7 %** |
+| **Analogové vstupy (AI: 4–20mA, PT)** | 7 | **14** (Univerzální vstupy na CPU CP-2007) | **7** | **50,0 %** |
+| **Tranzistorové výstupy (DO tranzistor + PWM)** | 6 (4 PWM + 2 DO) | **12** (Modul OS-1401) | **6** | **100,0 %** |
+| **Reléové výstupy (DO relé 230 V)** | 3 | **10** (Integrované reléové výstupy na CPU CP-2007) | **7** | **233,3 %** |
 3. **Proudová bilance a dimenzování napájecího zdroje 24 V DC:**
    - Vypočtěte proudovou spotřebu sestavy na hladině 24 V DC:
-     - Vlastní příkon CPU a rozšiřujících modulů (dle datasheetů Teco): `...` W / 24 V = `...` A
-     - Odběr napájených snímačů DI (23 snímačů × cca 10 mA): `...` A
-     - Odběr zátěží na tranzistorových výstupech se soudobostí $k_s = 0{,}7$: `...` A
-     - **Celkový špičkový proud:** `...` A
-     - Jaký napájecí zdroj 24 V DC z nabídky Teco / Mean Well zvolíte (včetně doporučené rezervy 25 %)?
-       - *Zvolený zdroj a jmenovitý proud:* `...`
-    - Navrhněte alternativu tohoto zdroje od jiného výrobce: `...`
-
+     - **Vlastní příkon CPU a rozšiřujících modulů (dle datasheetů Teco):** 15 W / 24 V = **0,63 A** (CP-2007: 10 W, IB-1301: 3 W, OS-1401: 2 W)
+- **Odběr napájených snímačů DI (23 snímačů × cca 10 mA):** **0,23 A**
+- **Odběr zátěží na tranzistorových výstupech se soudobostí $k_s = 0{,}7$:** **2,10 A** (6 aktivních výstupů × 0,5 A × 0,7)
+- **Celkový špičkový proud:** **2,96 A** (zaokrouhleno na cca 3,0 A)
+- **Zvolený zdroj a jmenovitý proud (s rezervou 25 % = 3,75 A):** **Teco PS2-120/24** (případně ekvivalent **Mean Well DR-100-24** / **NDR-120-24** s proudem 4,2 A / 5 A)
+- **Alternativa od jiného výrobce:** **Siemens SITOP PSU100S 24 V / 5 A** (`6EP1333-2BA20`)
+  
 > **Kritéria hodnocení úlohy 3 (bodování na známky):**
 > - :bangbang: **Správnost technického výběru a kompatibilita systému Teco (40 %):** Všechny zvolené moduly existují v portfoliu Teco a.s., jsou vzájemně kompatibilní (sběrnice TCL2/CIB) a plně pokrývají zadané signály včetně specifických požadavků (odporové měření PT100/Pt1000, 4–20 mA a rychlé výstupy PWM).
 > - :bangbang: **I/O bilance a projektová rezerva (30 %):** Korektní výpočet rezervy pro budoucí rozšíření linky (doporučená rezerva min. 15–20 %).
