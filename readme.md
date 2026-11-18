@@ -179,7 +179,7 @@ Jste v roli projektanta automatizačních systémů. Zákazník požaduje navrhn
 
 | Pozice | Typ modulu / komponenta | Přesné typové označení Teco | Objednací číslo (Part No.) | Pokryté vstupy a výstupy (DI / DO / AI / PWM / relé) |
 | :----- | :------------------------------------------ | :------------------------------------ | :------------------------- | :--------------------------------------------------- |
-| **1** | Spínaný napájecí zdroj 24 V DC na DIN lištu | `PS2-60/24` (nebo MeanWell DR-60-24) | `TXV 003 24` | Napájení centrální jednotky, I/O modulů a externích 24V senzorů |
+| **1** | Spínaný napájecí zdroj 24 V DC na DIN lištu | `PS2-60/24` (nebo MeanWell DR-60-24) | `-` | Napájení centrální jednotky, I/O modulů a externích 24V senzorů |
 | **2** | Centrální jednotka (CPU) | `CP-2007` | `TXN 120 07` | 14× univerzální vstup (využito pro 7× AI: 5× proud 4–20 mA + 2× Pt100/Pt1000 a 7× DI), 10× reléový výstup (využito 3× pro topná tělesa), Ethernet, CIB, TCL2 |
 | **3** | Rozšiřující modul 1 (sběrnice TCL2) | `IB-1301` | `TXN 113 01` | 12× digitální vstup (DI 24 V DC) – pokrytí zbývajících 16 DI + rezerva |
 | **4** | Rozšiřující modul 2 (sběrnice TCL2) | `OS-1401` (tranzistorový výstupní modul) | `TXN 114 01` | 12× tranzistorový výstup 24 V DC (pokrývá 4× PWM výstupy, 2× standardní tranzistorové výstupy + rezerva) |
